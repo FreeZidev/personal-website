@@ -51,19 +51,19 @@
           </p>
           
           <div class="flex flex-col space-y-4">
-            <a href="mailto:hello@lubomirfolta.com" class="text-xl hover:underline group flex items-center">
-              <span>hello@lubomirfolta.com</span>
+            <a href="mailto:lubomir.folta@gmail.com" class="text-xl hover:underline group flex items-center">
+              <span>lubomir.folta@gmail.com</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
-            <a href="https://linkedin.com/in/lubomirfolta" target="_blank" rel="noopener" class="text-xl hover:underline group flex items-center">
+            <a href="https://www.linkedin.com/in/%C4%BEubom%C3%ADr-fo%C4%BEta-7080aa278/" target="_blank" rel="noopener" class="text-xl hover:underline group flex items-center">
               <span>LinkedIn</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
-            <a href="https://github.com/lubomirfolta" target="_blank" rel="noopener" class="text-xl hover:underline group flex items-center">
+            <a href="https://github.com/FreeZidev" target="_blank" rel="noopener" class="text-xl hover:underline group flex items-center">
               <span>GitHub</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
