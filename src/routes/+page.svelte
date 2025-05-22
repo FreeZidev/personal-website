@@ -14,10 +14,6 @@
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
-    
-    alert(`Thanks for your message, ${name}! I'll get back to you soon.`);
-    
-    (e.target as HTMLFormElement).reset();
   }
 </script>
 
@@ -35,14 +31,13 @@
   <main class="max-w-6xl mx-auto px-4 md:px-8">
     <section class="mb-32 md:mb-48">
       <h1 class="text-6xl md:text-7xl lg:text-8xl font-medium mb-8 leading-tight slide-up">
-        Digital Designer 
+        Technician 
         <span class="inline-block border border-black rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rotate-in">&</span>
-        <span class="slide-up-delay">Webflow Developer</span>
+        <span class="slide-up-delay">IT Enthusiast</span>
       </h1>
       
       <p class="max-w-2xl text-xl leading-relaxed fade-in-delay">
-        I'm Lubomir Folta, a digital designer and creative Webflow developer — I collaborate with brands globally to design impactful, mission-focused websites that drive results and achieve business goals
-      </p>
+        I’m Ľubomír Foľta — a technician with a passion for technology. I have hands-on experience with phone repairs and diagnostics, building and servicing computers, basic system administration, and foundational web development. I’m always eager to learn and take on new challenges — my goal is to combine technical skills with practical solutions that make a real impact.      </p>
     </section>
 
     <section id="contact" class="py-16 border-t border-gray-200 slide-up-delay-2">
@@ -112,7 +107,6 @@
           </div>
           
           <button 
-            on:click={handleSubmit}
             type="submit" 
             class="self-start bg-black text-white py-3 px-8 rounded-full hover:bg-gray-800 transition-colors flex items-center group"
           >
