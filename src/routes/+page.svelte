@@ -1,19 +1,48 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import emailjs from '@emailjs/browser';
   
   let mounted = false;
+  let isSubmitting = false;
+  let submitStatus: 'idle' | 'success' | 'error' = 'idle';
   
   onMount(() => {
     mounted = true;
   });
   
-  function handleSubmit(e: SubmitEvent) {
+  async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
+    
+    if (isSubmitting) return;
     
     const formData = new FormData(e.target as HTMLFormElement);
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
+    
+    isSubmitting = true;
+    submitStatus = 'idle';
+    
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      );
+      
+      submitStatus = 'success';
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      submitStatus = 'error';
+    } finally {
+      isSubmitting = false;
+    }
   }
 </script>
 
@@ -37,7 +66,7 @@
       </h1>
       
       <p class="max-w-2xl text-xl leading-relaxed fade-in-delay">
-        I’m Ľubomír Foľta — a technician with a passion for technology. I have hands-on experience with phone repairs and diagnostics, building and servicing computers, basic system administration, and foundational web development. I’m always eager to learn and take on new challenges — my goal is to combine technical skills with practical solutions that make a real impact.      </p>
+        I'm Ľubomír Foľta — a technician with a passion for technology. I have hands-on experience with phone repairs and diagnostics, building and servicing computers, basic system administration, and foundational web development. I'm always eager to learn and take on new challenges — my goal is to combine technical skills with practical solutions that make a real impact.      </p>
     </section>
 
     <section id="contact" class="py-16 border-t border-gray-200 slide-up-delay-2">
@@ -108,12 +137,23 @@
           
           <button 
             type="submit" 
-            class="self-start bg-black text-white py-3 px-8 rounded-full hover:bg-gray-800 transition-colors flex items-center group"
+            class="self-start bg-black text-white py-3 px-8 rounded-full hover:bg-gray-800 transition-colors flex items-center group disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={isSubmitting}
           >
-            <span>Send Message</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            {#if isSubmitting}
+              <span>Sending...</span>
+            {:else if submitStatus === 'success'}
+              <span>Message Sent!</span>
+            {:else if submitStatus === 'error'}
+              <span>Failed to Send</span>
+            {:else}
+              <span>Send Message</span>
+            {/if}
+            {#if !isSubmitting && submitStatus !== 'success' && submitStatus !== 'error'}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            {/if}
           </button>
         </form>
       </div>
