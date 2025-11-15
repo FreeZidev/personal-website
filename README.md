@@ -1,38 +1,55 @@
-# sv
+# Osobný Web - Modern Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+SvelteKit projekt s moderným, čistým a profesionálnym dizajnom pre osobné portfolio.
 
-## Creating a project
+## Funkcie
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 🎨 **Moderný, čistý dizajn** - Profesionálny vzhľad s jednoduchou farebnou paletou (čierna, biela, šedá s modrými a oranžovými akcentmi)
+- ✨ **Plynulé animácie** - Subtílne a elegantné animácie cez Tailwind CSS
+- 📱 **Responsive dizajn** - Plne responzívny pre všetky zariadenia
+- 🧩 **Modulárna architektúra** - Jednoducho udržiavateľné Svelte komponenty
+- 🎯 **Jedinečná sekcia Zručností** - Moderná vizualizácia s progress barami a kruhovými indikátormi
+
+## Inštalácia
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Spustenie vývojového servera
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Aktualizácia obsahu
 
-To create a production version of your app:
+Aktualizujte obsah v súbore `src/lib/data/content.ts`:
 
-```bash
-npm run build
+- **Hero sekcia** - Meno, titul a podtitul
+- **O Mne** - Osobný popis
+- **Skúsenosti** - Zoznam pracovných skúseností
+- **Zručnosti** - Zručnosti s úrovňami (0-100)
+
+## Komponenty
+
+- `Hero.svelte` - Hlavná hero sekcia s animovaným textom
+- `About.svelte` - Sekcia O Mne
+- `Experience.svelte` - Timeline so skúsenosťami
+- `Skills.svelte` - Jedinečná vizualizácia zručností
+- `Navigation.svelte` - Hlavná navigácia
+
+## Štruktúra projektu
+
+```
+src/
+├── lib/
+│   ├── components/    # Svelte komponenty
+│   └── data/          # Obsah a dáta
+├── routes/
+│   ├── +layout.svelte # Hlavný layout
+│   └── +page.svelte   # Hlavná stránka
+├── app.css            # Globálne štýly a Tailwind
+└── app.html           # HTML šablóna
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

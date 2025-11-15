@@ -1,8 +1,16 @@
 <script lang="ts">
 	import '../app.css';
-	import '../output.css';
+	import { darkMode } from '$lib/stores/darkMode';
+	import { language } from '$lib/stores/language';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		darkMode.init();
+		language.init();
+	});
 </script>
 
-<div class="min-h-screen px-4 sm:px-8 md:px-16 py-8">
+<main class="min-h-screen">
 	<slot />
-</div>
+</main>
+
